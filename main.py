@@ -9,11 +9,17 @@ bot = telegram.Bot(token="144762386:AAGA1ElcWoFvE-MEL3zT7DaYaZCUT3NKbnI") #bot n
 
 
 id = 179042557
-
+twi_id=0
 #functions
 
 def getMyTimeLine():
-    return api.GetHomeTimeline(count=1)
+    if twi_id == 0:
+        return api.GetHomeTimeline(count=1)
+
+    else:
+        print twi_id
+        return api.GetHomeTimeline(since_id=twi_id)
+
 
 def textMessage(name, text1):
     Name = "*"+name+"*"
@@ -38,13 +44,20 @@ while 1:
             NAME_HOLDER = s.user.name
             print s.text
             TEXT_HOLDER = s.text
+            if s.id > twi_id:
+                twi_id=s.id
+            textMessage(NAME_HOLDER, TEXT_HOLDER)
 
+        time.sleep(300)
+
+        '''
         if (TEXT_HOLDER != TEXT_HOLDER_t):
             textMessage(NAME_HOLDER, TEXT_HOLDER)
 
         NAME_HOLDER_t = NAME_HOLDER
         TEXT_HOLDER_t = TEXT_HOLDER
         time.sleep(300)
+        '''
 
     except:
         print "reloop"
