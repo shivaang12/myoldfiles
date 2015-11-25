@@ -27,21 +27,27 @@ TEXT_HOLDER = ""
 NAME_HOLDER_t = ""
 TEXT_HOLDER_t = ""
 
+
 while 1:
-    #to catch a tweet
-    ins = getMyTimeLine()
+    try:
+        #to catch a tweet
+        ins = getMyTimeLine()
 
-    #There parms will hold out data
+        #There parms will hold out data
 
-    for s in ins:
-        print s.user.name
-        NAME_HOLDER = s.user.name
-        print s.text
-        TEXT_HOLDER = s.text
+        for s in ins:
+            print s.user.name
+            NAME_HOLDER = s.user.name
+            print s.text
+            TEXT_HOLDER = s.text
 
-    if (TEXT_HOLDER != TEXT_HOLDER_t):
-        textMessage(NAME_HOLDER, TEXT_HOLDER)
+        if (TEXT_HOLDER != TEXT_HOLDER_t):
+            textMessage(NAME_HOLDER, TEXT_HOLDER)
 
-    NAME_HOLDER_t = NAME_HOLDER
-    TEXT_HOLDER_t = TEXT_HOLDER
-    time.sleep(60)
+        NAME_HOLDER_t = NAME_HOLDER
+        TEXT_HOLDER_t = TEXT_HOLDER
+        time.sleep(300)
+
+    except:
+        print "reloop"
+        time.sleep(300)
