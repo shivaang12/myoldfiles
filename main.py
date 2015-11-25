@@ -8,9 +8,7 @@ api = twitter.Api(consumer_key='c5RCiZmC2yl6giIqtovEFYOdV', consumer_secret='cxw
 bot = telegram.Bot(token="144762386:AAGA1ElcWoFvE-MEL3zT7DaYaZCUT3NKbnI") #bot name jarvis
 
 
-update = bot.getUpdates()
-print update
-id = update[0].message.chat_id
+id = 179042557
 
 #functions
 
@@ -19,7 +17,7 @@ def getMyTimeLine():
 
 def textMessage(name, text1):
     Name = "*"+name+"*"
-    final = Name+" - "+"_"+text1+"_"
+    final = Name+" - "+text1
     bot.sendMessage(chat_id=id, text=final, parse_mode=telegram.ParseMode.MARKDOWN)
 
 NAME_HOLDER = ""
