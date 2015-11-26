@@ -7,7 +7,7 @@ api = twitter.Api(consumer_key='c5RCiZmC2yl6giIqtovEFYOdV', consumer_secret='cxw
 
 bot = telegram.Bot(token="144762386:AAGA1ElcWoFvE-MEL3zT7DaYaZCUT3NKbnI") #bot name jarvis
 
-
+tim = 1800
 id = 179042557
 twi_id=0
 #functions
@@ -48,7 +48,7 @@ while 1:
                 twi_id=s.id
             textMessage(NAME_HOLDER, TEXT_HOLDER)
 
-        time.sleep(300)
+        time.sleep(tim)
 
         '''
         if (TEXT_HOLDER != TEXT_HOLDER_t):
@@ -61,4 +61,4 @@ while 1:
 
     except:
         print "reloop"
-        time.sleep(300)
+        time.sleep(tim)
